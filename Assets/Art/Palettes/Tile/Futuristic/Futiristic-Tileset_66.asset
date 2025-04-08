@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: Futiristic-Tileset_66
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 802586925, guid: ff0d3b65c6e25ab48994979d2f7f5934, type: 3}
+  m_Sprite: {fileID: 1386383364, guid: 5cefd8d8b34076140ac1980526e131c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
