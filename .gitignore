@@ -58,7 +58,6 @@ ExportedObj/
 sysinfo.txt
 
 # Temporary auto-generated file
-*.meta
 
 # Builds
 *.apk
