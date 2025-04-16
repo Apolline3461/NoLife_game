@@ -5,15 +5,21 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed;
     private Rigidbody2D body;
     private bool grounded;
+    private Animator animator;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
+
+        float horizontalInput = Input.GetAxis("Horizontal");
+
+        animator.SetFloat("speed", Mathf.Abs(horizontalInput));
 
         if (Input.GetKey(KeyCode.Space) && grounded)
             Jump();
