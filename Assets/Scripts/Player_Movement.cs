@@ -3,6 +3,7 @@ using System.Collections;
 
 public enum TimePeriod
 {
+    Tuto,
     Past,
     Present,
     Future
@@ -11,13 +12,13 @@ public enum TimePeriod
 public class Player : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private float jumpForce;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private TimePeriod timePeriod;
     
     private Transform respawnPoint;
     private bool isDead = false;
     private int jumpsLeft;
+    private float jumpForce;
     private Rigidbody2D body;
     private bool grounded;
     private Animator animator;
@@ -43,23 +44,28 @@ public class Player : MonoBehaviour
     {
         switch (timePeriod)
         {
+            case TimePeriod.Tuto:
+                body.gravityScale = 3.5f;
+                jumpForce = 9f;
+                animator.speed = 1f;
+                break;
             case TimePeriod.Past:
-                body.gravityScale = 5f;
-                jumpForce = 6f;
+                body.gravityScale = 4f;
+                jumpForce = 9f;
                 animator.speed = 1.5f;
                 break;
             case TimePeriod.Present:
                 body.gravityScale = 3.5f;
-                jumpForce = 7f;
+                jumpForce = 9f;
                 animator.speed = 1f;
                 break;
             case TimePeriod.Future:
                 body.gravityScale = 2f;
                 jumpForce = 9f;
                 animator.speed = 0.85f;
-                jumpsLeft = 2;
                 break;
         }
+        jumpsLeft = (timePeriod == TimePeriod.Future || timePeriod == TimePeriod.Tuto) ? 2 : 1;
     }
 
     private IEnumerator DieAndRespawn() {
@@ -101,9 +107,9 @@ public class Player : MonoBehaviour
         animator.SetFloat("speed", Mathf.Abs(horizontalInput));
         grounded = IsGrounded();
 
-        if (grounded)
+        if (grounded && body.velocity.y <= 0.01f)
         {
-            jumpsLeft = (timePeriod == TimePeriod.Future) ? 2 : 1;
+            jumpsLeft = (timePeriod == TimePeriod.Future || timePeriod == TimePeriod.Tuto) ? 2 : 1;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && jumpsLeft > 0)
