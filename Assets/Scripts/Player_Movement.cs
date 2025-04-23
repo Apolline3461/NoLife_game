@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public enum TimePeriod
 {
@@ -13,7 +14,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private TimePeriod timePeriod;
-
+    
+    private Transform respawnPoint;
+    private bool isDead = false;
     private int jumpsLeft;
     private Rigidbody2D body;
     private bool grounded;
@@ -28,7 +31,11 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         playerTransform = transform;
         capsuleCollider = GetComponent<CapsuleCollider2D>();
+        respawnPoint = GameObject.FindGameObjectWithTag("Spawn").transform;
 
+        if (respawnPoint == null) {
+            Debug.LogError("RespawnPoint introuvable ! Assure-toi qu'un objet est tagué 'Spawn'.");
+        }
         ApplyTimePeriodSettings();
     }
 
@@ -55,8 +62,33 @@ public class Player : MonoBehaviour
         }
     }
 
+    private IEnumerator DieAndRespawn() {
+        isDead = true;
+        body.velocity = Vector2.zero;
+        animator.SetTrigger("isDead");
+
+        yield return new WaitForSeconds(2f);
+
+        Debug.Log("On est en Die et respawn, is dead = " + isDead);
+        // Respawn
+
+        Debug.Log("Teleportation au point de respawn");
+        transform.position = respawnPoint.position;
+        body.velocity = Vector2.zero;
+
+        isDead = false;
+        animator.Play("idleMPast");
+    }
+
     private void Update() {
         float horizontalInput = Input.GetAxis("Horizontal");
+
+        if (Input.GetKeyDown(KeyCode.P) && !isDead) {
+            StartCoroutine(DieAndRespawn());
+        }
+
+        if (isDead) return;
+
         body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
         if (horizontalInput != 0)
