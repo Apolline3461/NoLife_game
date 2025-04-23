@@ -11,8 +11,7 @@ public class ButtonBehavior : MonoBehaviour
     public void LaunchGame()
     {
         Debug.Log("Game launched!");
-        // Load the game scene (assuming it's named "GameScene")
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("playerDemoMovement");
     }
 
     // This method is called when the button is hovered over.
