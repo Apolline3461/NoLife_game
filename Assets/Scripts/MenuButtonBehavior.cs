@@ -21,9 +21,9 @@ public class ButtonBehavior : MonoBehaviour
     // Called when the button is clicked.
     public void LaunchGame()
     {
-        PlaySound(clickSound);
         if (!string.IsNullOrEmpty(sceneToLoad))
         {
+            PlaySound(clickSound);
             Debug.Log("Game launched! Loading scene: " + sceneToLoad);
             SceneManager.LoadScene(sceneToLoad);
         }
@@ -50,9 +50,10 @@ public class ButtonBehavior : MonoBehaviour
 
     private void PlaySound(AudioClip clip)
     {
-        if (clip != null)
-        {
+        if (clip != null) {
             audioSource.PlayOneShot(clip);
+        } else {
+            Debug.Log("No sounds is selected !");
         }
     }
 }

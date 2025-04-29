@@ -913,7 +913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: 
-  clickSound: {fileID: 8300000, guid: 8dd22aa6ca8664a47b0dd1eb75ce4fc0, type: 3}
+  clickSound: {fileID: 8300000, guid: b6f33945a77d8f396bb4101dea892f05, type: 3}
 --- !u!82 &1477959529
 AudioSource:
   m_ObjectHideFlags: 0
@@ -924,7 +924,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8dd22aa6ca8664a47b0dd1eb75ce4fc0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b6f33945a77d8f396bb4101dea892f05, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1292,7 +1292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: 
-  clickSound: {fileID: 8300000, guid: 8dd22aa6ca8664a47b0dd1eb75ce4fc0, type: 3}
+  clickSound: {fileID: 8300000, guid: b6f33945a77d8f396bb4101dea892f05, type: 3}
 --- !u!82 &1644009567
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1303,7 +1303,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8dd22aa6ca8664a47b0dd1eb75ce4fc0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b6f33945a77d8f396bb4101dea892f05, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1671,7 +1671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: LevelMenuScene
-  clickSound: {fileID: 8300000, guid: 8dd22aa6ca8664a47b0dd1eb75ce4fc0, type: 3}
+  clickSound: {fileID: 8300000, guid: b6f33945a77d8f396bb4101dea892f05, type: 3}
 --- !u!82 &2092469779
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1682,7 +1682,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8dd22aa6ca8664a47b0dd1eb75ce4fc0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b6f33945a77d8f396bb4101dea892f05, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
